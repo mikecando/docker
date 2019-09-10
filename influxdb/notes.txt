@@ -1,0 +1,30 @@
+https://hub.docker.com/_/influxdb
+
+docker pull influxdb
+
+I am using a local config file found in C:/docker/influxDB/config and 
+the data is stored loacally as well in C:/docker/influxDB/data
+
+All of this is specified in the docker-compose.yml file found at C:\docker\influxdb
+
+Run it:
+docker-compose up -d
+
+Show me the logs:
+docker-compose logs
+
+Stop it:
+docker-compose stop
+docker-compose rm
+
+A good article on influxdb that explains fields, tags, series,....
+https://docs.influxdata.com/influxdb/v1.7/concepts/key_concepts/
+
+
+set up volume
+/home/tcmadmin/container-data/influxdb/data
+/home/tcmadmin/container-data/influxdb/config
+
+docker run -dit -P --name ubuntu-test -v ~/container-data:/data ubuntu
+
+
