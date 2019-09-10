@@ -1,0 +1,9 @@
+
+Read from the site
+https://hub.docker.com/_/eclipse-mosquitto
+
+How to install
+docker pull eclipse-mosquitto
+
+How to run
+docker run -ti -p 1883:1883 -p 9001:9001 eclipse-mosquitto
