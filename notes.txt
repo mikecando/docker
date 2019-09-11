@@ -1,2 +1,6 @@
 instructions on installing docker on ubuntu
 https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04
+
+git commands
+1) This is how we commit all changes and new files
+git commit -m “Add Readme.txt” .
