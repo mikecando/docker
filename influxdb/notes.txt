@@ -17,6 +17,16 @@ Stop it:
 docker-compose stop
 docker-compose rm
 
+This is how to run the client agasint the influxdb01 container
+sudo docker exec -it influxdb01 influx -username tcmadmin -password tcmadmin
+
+some client commands
+SHOW DATABASES  //returns all the databases
+use db0  //this allows us to select the database db0
+select * from node_status   //run some queries
+select mean(cpu_usage) from node_status  //more queires
+select * from node_status limit 3  //limits the number of return points
+
 A good article on influxdb that explains fields, tags, series,....
 https://docs.influxdata.com/influxdb/v1.7/concepts/key_concepts/
 
