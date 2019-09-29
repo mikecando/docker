@@ -18,7 +18,7 @@ docker-compose stop
 docker-compose rm
 
 This is how to run the client agasint the influxdb01 container
-sudo docker exec -it influxdb01 influx -username tcmadmin -password tcmadmin
+docker exec -it influxdb01 influx -username tcmadmin -password tcmadmin
 
 some client commands
 SHOW DATABASES  //returns all the databases

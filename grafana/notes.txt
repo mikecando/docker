@@ -1,0 +1,43 @@
+I followed this article
+https://blog.linuxserver.io/2017/11/25/how-to-monitor-your-server-using-grafana-influxdb-and-telegraf/
+
+A simple way to start wotout docker-compose
+sudo docker run -d --name=grafana -p 3000:3000 grafana/grafana
+
+Use trhis to start
+sudo docker-compose -f docker-compose.yml up -d
+
+Show me the logs:
+docker-compose logs
+
+Stop it:
+docker-compose stop
+docker-compose rm
+
+Once started, login with this
+http://<server-ip>:3000/
+
+default login is
+admin / admin
+
+queries
+This is how we group by time
+select mean(LUBE2_ETNK ) from lube_tanks group by time(5m)
+
+moving averages. the 500 is the number of values (window size)
+select moving_average(LUBE2_ETNK,500) from lube_tanks
+select exponential_moving_average(LUBE2_ETNK,500) from lube_tanks
+
+to make the time return in a formatted way instead of unix nano time, use the following command
+precision rfc3339
+
+select mean(LUBE1_ETNK) AS LUBE1E,mean(LUBE1_WTNK) AS LUBE1W,
+mean(LUBE2_ETNK) AS LUBE2E, mean(LUBE2_WTNK) AS LUBE2E, 
+mean(LUBE3_ETNK) AS LUBE3E,mean(LUBE3_WTNK) AS LUBE3E, 
+mean(LUBE4_ETNK) AS LUBE4E, mean(LUBE4_WTNK) AS LUBE4E 
+from lube_tanks group by time(60m)
+
+
+
+
+

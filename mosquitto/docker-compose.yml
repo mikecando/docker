@@ -1,0 +1,14 @@
+eclipse-mosquitto:
+        environment:
+            INFLUXDB_ADMIN_USER: tcmadmin
+            INFLUXDB_ADMIN_PASSWORD: tcmadmin
+            INFLUXDB_HTTP_AUTH_ENABLED: "true"
+        image: eclipse-mosquitto:latest
+        ports:
+            - "1883:1883"
+            - "9001:9001"
+        container_name: mosquitto
+        volumes:
+            - /home/dockeradmin/docker/mosquitto/config/mosquitto.conf:/mosquitto/config/mosquitto.conf
+            - /home/dockeradmin/docker/mosquitto/data
+            - /home/dockeradmin/docker/mosquitto/log eclipse-mosquitto
