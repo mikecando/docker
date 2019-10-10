@@ -2,10 +2,10 @@ docker pull efrecon/mqtt-client
 
 
 //This also worked
-sudo docker run --init -it --rm efrecon/mqtt-client sub \
+docker run --init -it --rm efrecon/mqtt-client sub \
 -h test.mosquitto.org -t "#" -v
 
-sudo docker run --init -it --rm efrecon/mqtt-client sub \
+docker run --init -it --rm efrecon/mqtt-client sub \
 -h 192.168.0.6:1883 -t "#" -v
 
 
@@ -17,7 +17,9 @@ sudo docker run --init -it --rm efrecon/mqtt-client sub -h 192.168.0.6 -t "#" -v
 sudo docker run --init -it --rm efrecon/mqtt-client pub -h 192.168.0.6 -t "test/test01" -m "hello world"
 
 //This seemed to work for subscribing
-sudo docker run --init -it --rm efrecon/mqtt-client sub -h 172.30.10.217 -t "#" -v
+docker run --init -it --rm efrecon/mqtt-client sub -h 172.30.10.217 -t "#" -v
+
+docker run --init -it --rm efrecon/mqtt-client sub -h 172.30.10.217 -t "kepwareTcmGauge" -v
 
 
 //this works for publishing

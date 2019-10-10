@@ -1,0 +1,52 @@
+To run (and install if the redis image does not exist)
+docker run -d -p 6379:6379 --name redis1 redis
+
+look at logs
+docker logs redis1
+
+Start an ointeractive session and start the client redis-cli tool
+docker exec -it redis1 sh
+# redis-cli
+
+exit out of client tool and exit out of interactive session
+127.0.0.1:6379> exit
+# exit
+
+run the client tool in a separate container
+docker run -it --rm --link redis1:redis --name client1 redis sh
+# redis-cli -h redis
+
+
+
+
+Try out some basic Redis commands
+If we send a "ping", should get "PONG" back:
+127.0.0.1:6379> ping
+PONG
+
+Try out some more commands (set a key and increment a counter)
+
+127.0.0.1:6379> set name mark
+OK
+127.0.0.1:6379> get name
+"mark"
+127.0.0.1:6379> incr counter
+(integer) 1
+127.0.0.1:6379> incr counter
+(integer) 2
+127.0.0.1:6379> get counter
+"2"
+
+redis:6379> get name
+"mark"
+redis:6379> get counter
+"2"
+
+redis:6379> exit
+# exit
+
+Some clean up if we wish to stop and delete the container and/or image
+docker stop redis1
+docker rm redis1
+
+docker image rm redis
