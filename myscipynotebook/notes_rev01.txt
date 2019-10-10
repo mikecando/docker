@@ -21,6 +21,7 @@ data = dbClient.query('select count(*) from lube_tanks')
 #results.raw
 
 print(data)
+<<<<<<< HEAD
 
 
 
@@ -49,3 +50,27 @@ print(data)
 
 http://127.0.0.1:8888/?token=591ab7654d8d20645a10274195cd4098d45f19b32092d893
 
+
+Check out Dockerfiles at this repo (this is where this came from)
+https://github.com/jupyter/docker-stacks
+
+step 1 build from Dockerifle
+docker build -t myscipynotebook .
+
+step 2 running
+docker run --rm -p 8085:8888 -e JUPYTER_ENABLE_LAB=yes --network=host myscipyjupyter:latest
+
+docker run --rm -p 8085:8888 -e JUPYTER_ENABLE_LAB=yes --network=host myscipyjupyter:latest
+
+
+from influxdb import InfluxDBClient
+
+dbClient = InfluxDBClient('localhost', 8086, 'tcmadmin', 'tcmadmin', 'db0')
+
+data = dbClient.query('select count(*) from lube_tanks')
+
+#client.query('select count(*) from lube_tanks;')
+
+#results.raw
+
+print(data)
